@@ -1,64 +1,45 @@
-nav {
-  border: 2px solid green;
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300&family=Lilita+One&display=swap');
+
+/* 
+fonts ----------------------------
+font-family: 'Figtree', sans-serif;
+font-family: 'Lilita One', cursive;
+colors----------------------------
+#222831 - darkest
+#393E46 - grey
+#00ADB5 - blue
+#EEEEEE - white
+*/
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Kablammo', cursive;
+  font-family: 'Figtree', sans-serif;
 }
 
-.nav-left {
-  border: 2px solid green;
+h1,
+h2 {
+  font-family: 'Lilita One', cursive;
+  font-weight: 500;
 }
 
-.nav-right {
-  border: 2px solid green;
+a {
+  text-decoration: none;
+  color: #222831;
+  font-weight: bold;
 }
 
-ul {
-  border: 2px solid green;
-}
-
-li {
-  border: 2px solid green;
-}
-
-header {
-  border: 2px solid orange;
-}
-
-#duck {
-  border: 2px solid yellow;
-}
-
-.text {
-  border: 2px solid yellow;
-}
-
-.text p {
-  border: 2px solid yellow;
-}
-
-.duck {
-  border: 2px solid yellow;
-}
-
-#emergency {
-  border: 2px solid blue;
-}
-
-.grid-container {
-  border: 2px solid blue;
-}
-
-.grid-item {
-  border: 2px solid pink;
-}
-
-footer {
-  border: 2px solid red;
+a:hover {
+  text-decoration: underline;
 }
 
 nav {
-  border: solid green;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  background-color: #00adb5;
 }
 
 .nav-left {
@@ -91,27 +72,54 @@ nav {
   padding: 10px 0 10px 0;
 }
 
-#duck {
-  display: flex;
-}
+header {
+  text-transform: uppercase;
 
-footer {
+  color: black;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
-.grid-container {
-  border: solid blue;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 3px;
-  width: 80%;
-  margin: 0 auto;
+#duck {
+  display: flex;
+  background-color: #eeeeee;
+  padding-left: 20%;
+  padding-right: 10%;
+}
+
+#emergency {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .grid-item {
-  border: solid;
+  border: 1px solid grey;
+  box-shadow: 0 0px 10px lightgrey;
+  border-radius: 10px;
+}
+
+.grid-item:hover {
+  background-color: #eeeeee;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  width: 80%;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.grid-item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,4 +151,123 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #393e46;
+  color: #eeeeee;
+  padding-top: 40px;
+}
+
+input {
+  padding: 1em;
+  margin-bottom: 1em;
+  width: 250px;
+  font-size: 1em;
+}
+textarea {
+  margin-bottom: 1em;
+  padding: 1em;
+  width: 250px;
+  font-size: 16px;
+  resize: none;
+}
+
+input:focus {
+  outline: none;
+  font-family: 'Lilita One', cursive;
+}
+
+textarea:focus {
+  outline: 0;
+  font-family: 'Lilita One', cursive;
+}
+
+button {
+  width: 120px;
+  height: 40px;
+  margin-bottom: 40px;
+  font-size: 1em;
+  font-family: 'Lilita One', cursive;
+}
+
+.github {
+  width: 50px;
+  background-color: #eeeeee;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+body {
+  /*animation-name - animation-duration - animation-delay animation-iteration-count */
+  animation: unblur 7s 0s 1;
+}
+
+/*Keyframe definition
+  This custom keyframe rule named “unblur” will change the appearance of a text:
+  it will start with a text-shadow and will end with no text-shadow.
+  This is the custom animation that we will use inside the animation property */
+@keyframes unblur {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  100% {
+    transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  20% {
+    transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+
+a:hover,
+button:hover {
+  animation: bounce 0.5s 0s 1;
+}
+
+@keyframes rounding {
+  from {
+    border-radius: 0;
+  }
+  to {
+    border-radius: 20px;
+  }
+}
+
+input:focus {
+  animation: rounding 1s 0s forwards;
+}
+
+textarea:focus {
+  animation: rounding 1s 0s forwards;
+}
+
+header {
+  /*here we define what properties the transition should apply (background-colo, color
+and font-size*/
+  transition-property: background-color color font-size;
+  /* here we define how long our transition should last*/
+  transition-duration: 2s;
+  /* here we say that our transition should start0,5 seconds after the trigger*/
+  transition-delay: 0.5s;
+}
+
+/* here we define how our transition properties will change on hover*/
+header:hover {
+  color: yellow;
+  font-size: 1.6rem;
+  background-color: #393e46;
 }
